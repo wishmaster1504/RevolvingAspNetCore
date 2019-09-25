@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "View List of Anr";  
+}
+@model List<Ew0pf>
+
+
+<h1>Договора страхования</h1>
+ 
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Номер договора страхования
+            </th>
+            <th>
+                Статус договора
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+      
+       
+
+        @foreach(var item in Model)
+        {
+        <tr>
+            <td style="width:300px">  
+                @Html.ActionLink(@item.Anr, "Details", "Home", new { ew0pf = @item })
+
+            </td>
+            <td style="width:100px">
+                @item.Sts
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

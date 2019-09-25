@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "View List of Anr";
+}
+@model RevolvingAspNetCore.ViewModels.RevolvingsViewModel
+ 
+
+<h1>Договор страхования @Model.Anr</h1>
+
+<table class="table">
+    <thead>
+        <tr> 
+            <th>
+                Номер периода
+            </th>
+            <th>
+                Дата начала периода
+            </th>
+            <th>
+                Дата окончания периода
+            </th>
+            <th>
+                Расчитанная сумма за период
+            </th>
+            <th>
+                Неоплаченная сумма за период
+            </th>
+            <th>
+                Текущий период?
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var rev in @Model.Ewhpf)
+        {
+        <tr>
+            <th>
+                @rev.Pnum
+            </th>
+            <th> 
+                @rev.Dsp.ToString("dd MMM yyyy")
+            </th>
+            <th>
+                @rev.Dep.ToString("dd MMM yyyy")
+            </th>
+            <th>
+                @rev.Vama
+            </th>
+            <th>
+                @rev.Am1
+            </th>
+            <th>
+                @rev.Last
+            </th>
+        </tr>
+        }
+    </tbody>
+</table>
