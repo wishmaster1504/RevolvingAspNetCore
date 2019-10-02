@@ -8,6 +8,10 @@ namespace RevolvingAspNetCore.TempFunctions
 {
     public class MyTempFunctions
     {
+        //временно создадим в классе списки,
+        // имитирующие данные в БД
+        // Создаваться списки будут вместе
+        // с созданием экземпляра класса MyTempFunctions
 
         public List<Sddu> CreateNewListSddu(){
             List<Sddu> sddus = new List<Sddu>()
@@ -18,6 +22,18 @@ namespace RevolvingAspNetCore.TempFunctions
             };
 
             return sddus;
+        }
+
+        public List<Ewhpf> CreateNewListEwh()
+        {
+            List<Ewhpf> ewhpfs = new List<Ewhpf>()
+            {
+                new Ewhpf() { Anr = "RV25", Pnum = 1, Dsp = DateTime.Now, Dep = DateTime.Now, Vama = 400, Am1 = 300, Last = "N", Ts = DateTime.Now},
+                new Ewhpf() { Anr = "RV25", Pnum = 2, Dsp = DateTime.Now, Dep = DateTime.Now, Vama = 400, Am1 = 300, Last = "Y", Ts = DateTime.Now},
+                new Ewhpf() { Anr = "RV33", Pnum = 1, Dsp = DateTime.Now, Dep = DateTime.Now, Vama = 400, Am1 = 300, Last = "Y", Ts = DateTime.Now}
+            };
+
+            return ewhpfs;
         }
         
     }

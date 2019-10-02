@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "View List of Anr";  
+    ViewData["Title"] = "Список договоров";  
 }
 @model List<Ew0pf>
 
@@ -27,7 +27,7 @@
         {
         <tr>
             <td style="width:300px">  
-                @Html.ActionLink(@item.Anr, "Details", "Home", new { ew0pf = @item })
+                @Html.ActionLink(@item.Anr, "Details", "Home", new { anr = @item.Anr, ncd = @item.Ncd })
 
             </td>
             <td style="width:100px">

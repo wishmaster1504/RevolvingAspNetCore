@@ -44,39 +44,23 @@ namespace RevolvingAspNetCore.Controllers
             return View();
         }
 
-        public IActionResult Details(Ew0pf ew0pf)
+        public IActionResult Details(string anr, string ncd)
         {
-            List<Ewhpf> ewhpfs = new List<Ewhpf>()
-            {
-             new Ewhpf() { Anr = "RV25", Pnum = 1, Dsp = DateTime.Now, Dep = DateTime.Now, Vama = 400, Am1 = 300, Last = "N", Ts = DateTime.Now},
-             new Ewhpf() { Anr = "RV25", Pnum = 2, Dsp = DateTime.Now, Dep = DateTime.Now, Vama = 400, Am1 = 300, Last = "Y", Ts = DateTime.Now},
-             new Ewhpf() { Anr = "RV33", Pnum = 1, Dsp = DateTime.Now, Dep = DateTime.Now, Vama = 400, Am1 = 300, Last = "Y", Ts = DateTime.Now},
-            };
-
-            
-            List<Ewhpf> _ewh = new List<Ewhpf>(ewhpfs.Where(x => x.Anr.Equals(ew0pf.Anr)).ToList());
-
-
             MyTempFunctions tempFunctions = new MyTempFunctions(); // временные функции  
+
+            List<Ewhpf> ewhpfs = new List<Ewhpf>(tempFunctions.CreateNewListEwh()).Where(x => x.Anr.Equals(anr)).ToList();
+             
             List<Sddu> sddus = new List<Sddu>(tempFunctions.CreateNewListSddu());
             Sddu _sddu = new Sddu();
-            foreach (var t in
-            //_sddu = sddus.Where(x => x.Ncd.Equals(ew0pf.Ncd));
-            from t in sddus
-            where t.Ncd.Equals(ew0pf.Ncd)
-            select t)
-            {
-                _sddu = t;
-                break;
-            }
+            _sddu = sddus.Single(x => x.Ncd.Equals(ncd));
+           
 
-            sddus = tempFunctions.CreateNewListSddu();
-
+              
 
             RevolvingsViewModel revolvingsViewModel = new RevolvingsViewModel()
             {
-                Anr = ew0pf.Anr,
-                Ewhpf = _ewh,
+                Anr = anr,
+                Ewhpf = ewhpfs,
                 Sddu = _sddu
             };
 

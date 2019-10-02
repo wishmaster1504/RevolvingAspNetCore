@@ -2,12 +2,37 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
-    ViewData["Title"] = "View List of Anr";
+    ViewData["Title"] = "Info for Anr";
 }
 @model RevolvingAspNetCore.ViewModels.RevolvingsViewModel
  
+    <table>
+        <tr>
+            <th>
+                <b>Договор страхования</b> 
+            </th>
+            <th style="color:green">
+                @Model.Anr
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <b>Номер кредитного договора</b> 
+            </th>
+            <th style="color:green">
+                @Model.Sddu.Ncd
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <b>Тип кредитного договора</b> 
+            </th>
+            <th style="color:gold">
+                @Model.Sddu.Type
+            </th>
+        </tr>
+    </table>
 
-<h1>Договор страхования @Model.Anr</h1>
 
 <table class="table">
     <thead>
